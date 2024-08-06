@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:resume_builder_app/routes/app_routes.dart';
 
@@ -6,11 +8,16 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(
-        const Duration(
-          seconds: 3,
-        ), () {
+    // Future.delayed(
+    //     const Duration(
+    //       seconds: 3,
+    //     ), () {
+    //   Navigator.of(context).pushReplacementNamed(AppRoutes.homePage);
+    // });
+
+    Timer.periodic(const Duration(seconds: 3), (timer) {
       Navigator.of(context).pushReplacementNamed(AppRoutes.homePage);
+      timer.cancel();
     });
 
     return Scaffold(
