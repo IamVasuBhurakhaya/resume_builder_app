@@ -21,8 +21,9 @@ class _BuildOptionPageState extends State<BuildOptionPage> {
               (e) => ListTile(
                 leading: Image.asset(
                   e['icon'],
-                  height: 25,
+                  height: 35,
                 ),
+                title: Text(e['title']),
                 trailing: IconButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed(e['route']);

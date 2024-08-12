@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: Image.network("assets/images/splash_screen.gif"),
+        child: Image.asset("lib/assets/images/splash_screen.gif"),
       ),
     );
   }

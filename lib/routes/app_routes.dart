@@ -19,11 +19,11 @@ class AppRoutes {
   static String homePage = "home_page";
   static String buildOptionPage = "build_option_page";
 
-  static String iconPath = "lib/assets/icons";
+  static String iconPath = "lib/assets/icons/";
 
   static List<Map<String, dynamic>> allOption = [
     {
-      'icon': "${iconPath}contact-detail.png",
+      'icon': "${iconPath}contact_detail.png",
       'title': "Contact Info",
       'route': "contact_info_page",
     },
