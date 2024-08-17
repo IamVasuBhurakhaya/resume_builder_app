@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           Navigator.of(context).pushNamed(AppRoutes.buildOptionPage);
         },
-        child: Icon(
+        child: const Icon(
           Icons.add_rounded,
         ),
       ),
