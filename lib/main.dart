@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resume_builder_app/routes/app_routes.dart';
+
 //https://coolors.co/palettes/trending
 //d4a373
 //e9edc9
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
             backgroundColor: Color(0xffccd5ae),
             iconSize: 35,
             splashColor: Color(0xfffaedcd)),
-        scaffoldBackgroundColor: Color(0xfffefae0),
-        appBarTheme: AppBarTheme(backgroundColor: Color(0xfffefae0)),
+        scaffoldBackgroundColor: const Color(0xfffefae0),
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xfffefae0)),
       ),
       debugShowCheckedModeBanner: false,
       routes: AppRoutes.routes,

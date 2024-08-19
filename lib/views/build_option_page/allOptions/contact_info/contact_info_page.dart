@@ -19,10 +19,6 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
 
   String? name, contact, email;
 
-  // TextEditingController nameController = TextEditingController();
-  // TextEditingController contactController = TextEditingController();
-  // TextEditingController emailController = TextEditingController();
-
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   static final RegExp emailRedExp = RegExp(
@@ -114,8 +110,12 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                       Container(
                         decoration: const BoxDecoration(
                           color: Color(0xffE9EDC9),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                         ),
-                        padding: const EdgeInsets.all(12),
+                        padding: const EdgeInsets.only(
+                            right: 12, left: 12, bottom: 28, top: 28),
                         child: SingleChildScrollView(
                           child: Form(
                             key: formKey,
@@ -153,7 +153,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                     if (val!.isEmpty) {
                                       return "Please enter number !!";
                                     } else if (val.length < 10) {
-                                      return "Contact numbr must be of 10 digit !!";
+                                      return "Contact number must be of 10 digits !!";
                                     } else {
                                       return null;
                                     }
@@ -215,7 +215,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                             Globals.name = null;
                                         setState(() {});
                                       },
-                                      child: Text("RESET"),
+                                      child: const Text("RESET"),
                                     ),
                                     ElevatedButton(
                                       onPressed: () {
@@ -237,7 +237,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                         } else {
                                           SnackBar snackBar = const SnackBar(
                                             content: Text(
-                                                "Form submission failes...!!"),
+                                                "Form submission failed...!!"),
                                             backgroundColor: Colors.red,
                                             behavior: SnackBarBehavior.floating,
                                           );
@@ -264,31 +264,71 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                             )),
                         padding: const EdgeInsets.all(16),
                         width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.25,
+                        height: MediaQuery.sizeOf(context).height * 0.30,
                         alignment: Alignment.center,
                         child: Stack(
                           alignment: Alignment.bottomRight,
                           children: [
                             CircleAvatar(
-                              radius: 60,
+                              radius: 90,
+                              backgroundColor: Color(0xfffaedcd),
                               foregroundImage: Globals.image != null
                                   ? FileImage(Globals.image!)
                                   : null,
-                              child: const Text("Add Image"),
+                              child: Globals.image == null
+                                  ? const Text(
+                                      "Add Image",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    )
+                                  : null,
                             ),
                             FloatingActionButton.small(
+                              splashColor: Color(0xfffefae0),
+                              backgroundColor: Color(0xffe9edc9),
                               onPressed: () async {
-                                ImagePicker imagePicker = ImagePicker();
+                                final ImagePicker imagePicker = ImagePicker();
+                                final source = await showDialog<ImageSource>(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      backgroundColor: Color(0xffe9edc9),
+                                      title: const Text("Choose Image Source"),
+                                      actions: <Widget>[
+                                        ElevatedButton(
+                                          child: const Text("Camera"),
+                                          onPressed: () {
+                                            Navigator.of(context)
+                                                .pop(ImageSource.camera);
+                                          },
+                                        ),
+                                        ElevatedButton(
+                                          child: const Text("Gallery"),
+                                          onPressed: () {
+                                            Navigator.of(context)
+                                                .pop(ImageSource.gallery);
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
 
-                                XFile? file = await imagePicker.pickImage(
-                                    source: ImageSource.camera);
-
-                                if (file != null) {
-                                  Globals.image = File(file.path);
-                                  setState(() {});
+                                if (source != null) {
+                                  final XFile? file = await imagePicker
+                                      .pickImage(source: source);
+                                  if (file != null) {
+                                    setState(() {
+                                      Globals.image = File(file.path);
+                                    });
+                                  }
                                 }
                               },
-                              child: const Icon(Icons.camera),
+                              child: const Icon(
+                                Icons.add_rounded,
+                                size: 34,
+                              ),
                             ),
                           ],
                         ),
