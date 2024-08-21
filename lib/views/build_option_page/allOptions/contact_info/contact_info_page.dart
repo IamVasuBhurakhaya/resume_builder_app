@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -258,9 +257,9 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                       //photo page----
                       Container(
                         decoration: const BoxDecoration(
-                            color: Color(0xffCCD5AE),
+                            color: Color(0xffE9EDC9),
                             borderRadius: BorderRadius.all(
-                              Radius.circular(10),
+                              Radius.circular(16),
                             )),
                         padding: const EdgeInsets.all(16),
                         width: double.infinity,
@@ -271,7 +270,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                           children: [
                             CircleAvatar(
                               radius: 90,
-                              backgroundColor: Color(0xfffaedcd),
+                              backgroundColor: const Color(0xffFAEDCD),
                               foregroundImage: Globals.image != null
                                   ? FileImage(Globals.image!)
                                   : null,
@@ -285,15 +284,15 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                   : null,
                             ),
                             FloatingActionButton.small(
-                              splashColor: Color(0xfffefae0),
-                              backgroundColor: Color(0xffe9edc9),
+                              splashColor: const Color(0xfffefae0),
+                              backgroundColor: const Color(0xffe9edc9),
                               onPressed: () async {
                                 final ImagePicker imagePicker = ImagePicker();
                                 final source = await showDialog<ImageSource>(
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      backgroundColor: Color(0xffe9edc9),
+                                      backgroundColor: const Color(0xffe9edc9),
                                       title: const Text("Choose Image Source"),
                                       actions: <Widget>[
                                         ElevatedButton(
