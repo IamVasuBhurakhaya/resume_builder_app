@@ -30,7 +30,15 @@ class _PersonalDetailPageState extends State<PersonalDetailPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Personal detail"),
+          title: const Text(
+            "Personal detail",
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54,
+              letterSpacing: 0.8,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),

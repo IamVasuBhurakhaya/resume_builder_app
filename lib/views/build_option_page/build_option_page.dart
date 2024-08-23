@@ -14,12 +14,12 @@ class _BuildOptionPageState extends State<BuildOptionPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Build Option Page",
+          "Build Options",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 26,
-            color: Colors.black87,
-          ),
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+              color: Colors.black54,
+              fontStyle: FontStyle.italic),
         ),
       ),
       body: SingleChildScrollView(

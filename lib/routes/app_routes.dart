@@ -88,7 +88,7 @@ class AppRoutes {
     allOption[2]['route']: (context) => const PersonalDetailPage(),
     allOption[3]['route']: (context) => const EducationPage(),
     allOption[4]['route']: (context) => const ExperiencePage(),
-    allOption[5]['route']: (context) => const TechnicalSkillPage(),
+    allOption[5]['route']: (context) => const TechnicalSkillsPage(),
     allOption[6]['route']: (context) => const InterestsHobbiesPage(),
     allOption[7]['route']: (context) => const ProjectsPage(),
     allOption[8]['route']: (context) => const AchievementsPage(),

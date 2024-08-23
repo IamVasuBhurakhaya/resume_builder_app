@@ -21,7 +21,15 @@ class _CarrierObjectivePageState extends State<CarrierObjectivePage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Carrier Objective"),
+          title: const Text(
+            "Carrier Objective",
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54,
+              letterSpacing: 0.8,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
@@ -86,7 +94,7 @@ class _CarrierObjectivePageState extends State<CarrierObjectivePage> {
                       decoration: InputDecoration(
                         labelText: "Current designation",
                         hintText: "Flutter developer",
-                        prefixIcon: const Icon(Icons.golf_course_outlined),
+                        prefixIcon: const Icon(Icons.person),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

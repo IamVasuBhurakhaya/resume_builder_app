@@ -37,7 +37,15 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Contact Info"),
+          title: const Text(
+            "Contact Info",
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54,
+              letterSpacing: 0.8,
+            ),
+          ),
         ),
         body: Center(
           child: Column(
@@ -64,7 +72,9 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                         child: const Text(
                           "Contact",
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black54,
                           ),
                         ),
                       ),
@@ -90,7 +100,9 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                         child: const Text(
                           "Photo",
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black54,
                           ),
                         ),
                       ),
@@ -278,8 +290,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                   ? const Text(
                                       "Add Image",
                                       style: TextStyle(
-                                        fontSize: 20,
-                                      ),
+                                          fontSize: 20, color: Colors.black54),
                                     )
                                   : null,
                             ),
@@ -293,7 +304,12 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                   builder: (BuildContext context) {
                                     return AlertDialog(
                                       backgroundColor: const Color(0xffe9edc9),
-                                      title: const Text("Choose Image Source"),
+                                      title: const Text(
+                                        "Choose Image Source",
+                                        style: TextStyle(
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w700),
+                                      ),
                                       actions: <Widget>[
                                         ElevatedButton(
                                           child: const Text("Camera"),
@@ -327,6 +343,7 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                               child: const Icon(
                                 Icons.add_rounded,
                                 size: 34,
+                                color: Colors.black54,
                               ),
                             ),
                           ],

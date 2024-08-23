@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:resume_builder_app/routes/app_routes.dart';
 
@@ -13,7 +15,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("App Bar"),
+        title: const Text(
+          "Home Area",
+          style: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+            color: Colors.black54,
+            letterSpacing: 0.8,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -21,6 +31,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: const Icon(
           Icons.add_rounded,
+          color: Colors.black54,
         ),
       ),
     );

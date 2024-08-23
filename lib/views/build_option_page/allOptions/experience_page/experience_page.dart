@@ -22,7 +22,15 @@ class _ExperiencePageState extends State<ExperiencePage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Personal detail"),
+          title: const Text(
+            "Experience",
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54,
+              letterSpacing: 0.8,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
@@ -95,6 +103,109 @@ class _ExperiencePageState extends State<ExperiencePage> {
                     ),
                     15.h,
 
+                    //gender
+                    const Text(
+                      "Employed Status",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black54,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    RadioListTile(
+                      title: const Text(
+                        "Previously Employed",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      value: "Previously Employed",
+                      groupValue: Globals.isSelected,
+                      onChanged: (val) {
+                        Globals.isSelected = val;
+                        setState(() {});
+                      },
+                    ),
+                    RadioListTile(
+                      title: const Text(
+                        "Currently Employed",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      value: "Currently Employed",
+                      groupValue: Globals.isSelected,
+                      onChanged: (val) {
+                        Globals.isSelected = val;
+                        setState(() {});
+                      },
+                    ),
+
+                    //previosly employed
+                    Visibility(
+                      visible: Globals.isSelected == "Currently Employed",
+                      child: Row(
+                        children: [
+                          TextFormField(
+                            initialValue: Globals.joinedDate,
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Please enter joining date !!";
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (val) {
+                              Globals.joinedDate = val;
+                            },
+                            textInputAction: TextInputAction.done,
+                            maxLength: 1,
+                            keyboardType: TextInputType.datetime,
+                            decoration: InputDecoration(
+                              labelText: "Enter joining date",
+                              hintText: "DD/MM/YYYY",
+                              prefixIcon:
+                                  const Icon(Icons.calendar_month_outlined),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                          15.w,
+                          TextFormField(
+                            initialValue: Globals.leavingDate,
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Please enter leaving date !!";
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (val) {
+                              Globals.leavingDate = val;
+                            },
+                            textInputAction: TextInputAction.done,
+                            maxLength: 1,
+                            keyboardType: TextInputType.datetime,
+                            decoration: InputDecoration(
+                              labelText: "Enter leaving date",
+                              hintText: "DD/MM/YYYY",
+                              prefixIcon:
+                                  const Icon(Icons.calendar_month_outlined),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    15.h,
+
                     30.h,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,7 +214,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
                           onPressed: () {
                             formKey.currentState!.reset();
 
-                            Globals.nationality = Globals.dob = null;
+                            Globals.isSelected = null;
                             setState(() {});
                           },
                           child: const Text("RESET"),
