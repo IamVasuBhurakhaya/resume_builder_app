@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/achievements_page/achievements_page.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/carrier_objective/carrier_objective_page.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/contact_info/contact_info_page.dart';
-import 'package:resume_builder_app/views/build_option_page/allOptions/declaration_page/declaration_page.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/education_page/education_page.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/experience_page/experience_page.dart';
 import 'package:resume_builder_app/views/build_option_page/allOptions/interests_hobbies_page/interests_hobbies_page.dart';
@@ -12,12 +11,14 @@ import 'package:resume_builder_app/views/build_option_page/allOptions/references
 import 'package:resume_builder_app/views/build_option_page/allOptions/technical_skill_page/technical_skill_page.dart';
 import 'package:resume_builder_app/views/build_option_page/build_option_page.dart';
 import 'package:resume_builder_app/views/home_page/home_page.dart';
+import 'package:resume_builder_app/views/pdf_page/pdf_page.dart';
 import 'package:resume_builder_app/views/splash_screen/splash_screen.dart';
 
 class AppRoutes {
   static String splashScreen = "/";
   static String homePage = "home_page";
   static String buildOptionPage = "build_option_page";
+  static String pdfPage = "pdf_page";
 
   static String iconPath = "lib/assets/icons/";
 
@@ -72,16 +73,12 @@ class AppRoutes {
       'title': "References",
       'route': "references_page",
     },
-    {
-      'icon': "${iconPath}declaration.png",
-      'title': "Declaration",
-      'route': "declaration_page",
-    },
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
     splashScreen: (context) => const SplashScreen(),
     homePage: (context) => const HomePage(),
+    pdfPage: (context) => const PdfPage(),
     buildOptionPage: (context) => const BuildOptionPage(),
     allOption[0]['route']: (context) => const ContactInfoPage(),
     allOption[1]['route']: (context) => const CarrierObjectivePage(),
@@ -93,6 +90,5 @@ class AppRoutes {
     allOption[7]['route']: (context) => const ProjectsPage(),
     allOption[8]['route']: (context) => const AchievementsPage(),
     allOption[9]['route']: (context) => const ReferencesPage(),
-    allOption[10]['route']: (context) => const DeclarationPage(),
   };
 }

@@ -14,6 +14,7 @@ class Globals {
       institute,
       percentage,
       passyear,
+      profession,
       company,
       position,
       isSelected,

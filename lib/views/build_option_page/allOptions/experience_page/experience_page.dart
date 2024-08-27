@@ -52,6 +52,32 @@ class _ExperiencePageState extends State<ExperiencePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    //Profession
+                    TextFormField(
+                      initialValue: Globals.profession,
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Please enter Profession!!";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onSaved: (val) {
+                        Globals.profession = val;
+                      },
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: "Enter Profession",
+                        hintText: "Flutter developer",
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    15.h,
+
                     //Company name
                     TextFormField(
                       initialValue: Globals.company,
@@ -66,7 +92,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
                         Globals.company = val;
                       },
                       textInputAction: TextInputAction.done,
-                      keyboardType: TextInputType.datetime,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: "Enter company name",
                         hintText: "Infosys limited",

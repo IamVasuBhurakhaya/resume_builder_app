@@ -13,7 +13,8 @@ class SplashScreen extends StatelessWidget {
     //       seconds: 3,
     //     ), () {
     //   Navigator.of(context).pushReplacementNamed(AppRoutes.homePage);
-    // });
+    // },
+    // );
 
     Timer.periodic(const Duration(seconds: 3), (timer) {
       Navigator.of(context).pushReplacementNamed(AppRoutes.homePage);

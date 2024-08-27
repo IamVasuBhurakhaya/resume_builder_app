@@ -62,6 +62,13 @@ class _BuildOptionPageState extends State<BuildOptionPage> {
               .toList(),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.pdfPage);
+        },
+        icon: const Icon(Icons.picture_as_pdf_outlined),
+        label: const Text("Generate PDF"),
+      ),
     );
   }
 }
