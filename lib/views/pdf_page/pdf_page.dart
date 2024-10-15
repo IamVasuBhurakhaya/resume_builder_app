@@ -70,6 +70,7 @@ class _PdfPageState extends State<PdfPage> {
                       color: PdfColors.white,
                     ),
                   ),
+              
                   pw.SizedBox(height: 10),
                   pw.Text(
                     "+91 ${Globals.contact ?? "Not Added"}",
